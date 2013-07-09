@@ -110,6 +110,7 @@ define(function (require) {
     };
     
     var userMediaFile;
+    var streamObj;
     
     document.getElementsByClassName('btn-take')[0].addEventListener('click', function() {
     	document.getElementById('view-take').removeAttribute('style');
@@ -140,6 +141,7 @@ define(function (require) {
     		},
     		function(stream)
     		{
+    			streamObj = stream;
     			video.src = window.URL.createObjectURL(stream);
     			video.play();
     		},
@@ -204,6 +206,7 @@ define(function (require) {
     
     document.getElementsByClassName('btn-ok')[0].addEventListener('click', function()
     {
+    	streamObj.stop();
     	var files = document.querySelector('#take-picture').files;
     	
     	if (userMediaFile) {
