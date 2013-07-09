@@ -1,0 +1,159 @@
+html, body { height: 100%; }
+
+body {
+    background: radial-gradient(ellipse at center, rgba(231,76,60,1) 0%,rgba(192,57,43,1) 100%);
+    color: #fff;
+    font-family: MozTT, sans-serif;
+    
+    font-size: 16px;
+    
+    font-size: 1.4rem;
+    
+    font-weight: 300;
+    
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: 300; }
+
+h1 { font-size: 3rem; }
+
+a {
+    color: #ffa49e;
+    text-decoration: none;
+    text-shadow: 0px 1px 1px rgba(0,0,0,.3);
+}
+a:hover { color: #fff; }
+
+input, button, select, textarea {
+    border-radius: 0;
+    box-shadow: none;
+}
+input[type=text], textarea, select {
+    border: none;
+    font-family: MozTT, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: .7rem .8rem;
+}
+
+[role=region] {
+    background: radial-gradient(ellipse at center, rgba(231,76,60,1) 0%, rgba(192,57,43,1) 100%);
+    
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+    position: fixed;
+}
+[role=region] > header {
+    margin: .5rem 0 1rem 0;
+    text-align: center;
+}
+[role=region] > header > h1 {
+    margin: 0;
+    text-shadow: 0px 1px 1px rgba(0,0,0,.4);
+}
+[role=region] > .view-content {
+    margin: 0 1rem 4rem 1rem;
+}
+[role=region] > .view-content .photo-list img {
+    height: 30mm;
+}
+[role=region] > footer {
+    background: rgba(0,0,0,.2);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    text-align: center;
+}
+[role=region] > footer > menu[role=toolbar] {
+    margin: 0;
+    padding: 0;
+}
+
+menu[role=toolbar] > [role=menuitem] {
+    border: none;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+menu[role=toolbar] > [role=menuitem] > span {
+    display: none;
+}
+menu[role=toolbar] > [role=menuitem]:disabled {
+    opacity: .2;
+}
+menu[role=toolbar] > [role=menuitem]:hover {
+    background-color: rgba(255,255,255,.1);
+}
+menu[role=toolbar] > .btn-list {
+    background: url(../img/list.png) no-repeat center center;
+}
+menu[role=toolbar] > .btn-take {
+    background: url(../img/take.png) no-repeat center center;
+}
+menu[role=toolbar] > .btn-cancel {
+    background: url(../img/cancel.png) no-repeat center center;
+}
+menu[role=toolbar] > .btn-shoot {
+    background: url(../img/shoot.png) no-repeat center center;
+}
+menu[role=toolbar] > .btn-close {
+    background: url(../img/close.png) no-repeat center center;
+}
+menu[role=toolbar] > .btn-delete {
+    background: url(../img/delete.png) no-repeat center center;
+}
+.photo-list {
+    display: block;
+    line-height: 0px;
+}
+.photo-list > li {
+    display: inline-block;
+    margin: 2mm;
+    border: 1px solid hsl(222, 12%, 19%);
+    border-radius: 3px;
+}
+.photo-list > li > a {
+    display: inline-block;
+    min-height: 10px;
+    min-width: 10px;
+}
+
+[aria-hidden=true] {
+  display: none;
+}
+
+.slide-up-in {
+  animation-name: slide-up-in;
+  animation-duration: .6s;
+  transform: translateY(0%);
+}
+@keyframes slide-up-in {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0%); }
+}
+ 
+.slide-down-out {
+  animation-name: slide-down-out;
+  animation-duration: .6s;
+  transform: translateY(100%);
+}
+@keyframes slide-down-out {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(100%); }
+}
+
+[role=region]#view-take {
+    background: hsl(90, 50%, 50%);
+}
+[role=region]#view-show {
+    background: hsl(120, 50%, 50%);
+}
+
+#view-show #show-picture img {
+    max-height: 100%;
+    max-width: 100%;
+}

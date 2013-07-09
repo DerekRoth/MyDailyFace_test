@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/app.css">
+        <script defer data-main="js/app" src="js/lib/require.js"></script>
+    </head>
+    <body role="application">
+        <section id="view-list" role="region">
+            <header>
+                <h1>Pictures</h1>
+            </header>
+            
+            <article class="view-content">
+                <ul class="photo-list" role="list">
+                    
+                </ul>
+            </article>
+            
+            <footer>
+                <menu role="toolbar">
+                    <button role="menuitem" class="btn-list" disabled><span>List</span></button>
+                    <button role="menuitem" class="btn-take"><span>Take</span></button>
+                </menu>
+            </footer>
+        </section>
+        
+        <section id="view-take" role="region" style="display: none;" class="slide-down-out">
+            <header>
+                <h1>Take a picture</h1>
+            </header>
+            
+            <video></video>
+            <canvas></canvas>
+            <img src="empty.png" alt="Photo">
+            
+            <input type="file" id="take-picture" accept="image/*">
+            
+            <button class="btn-shoot"><span>Shoot !</span></button>
+            
+            <footer>
+                <menu role="toolbar">
+                    <button role="menuitem" class="btn-cancel"><span>Cancel</span></button>
+                    <button role="menuitem" class="btn-ok"><span>Shoot</span></button>
+                </menu>
+            </footer>
+        </section>
+        
+        <section id="view-show" role="region" style="display: none;" class="slide-down-out">
+            <header>
+                <h1>Details of a picture</h1>
+            </header>
+            
+            <div id="show-picture"></div>
+            
+            <footer>
+                <menu role="toolbar">
+                    <button role="menuitem" class="btn-close"><span>Close</span></button>
+                    <button role="menuitem" class="btn-delete"><span>Delete</span></button>
+                </menu>
+            </footer>
+        </section>
+    </body>
+</html>
