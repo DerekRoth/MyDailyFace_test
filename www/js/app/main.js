@@ -222,6 +222,7 @@ define(function (require) {
     
     document.getElementsByClassName('btn-cancel')[0].addEventListener('click', function() {
     	document.getElementById('view-take').className = 'slide-down-out';
+    	streamObj.stop();
     	//document.getElementById('view-take').style.display = 'none';
     });
     
