@@ -30,9 +30,12 @@
                 <h1>Take a picture</h1>
             </header>
             
-            <video></video>
-            <canvas></canvas>
-            <img src="empty.png" alt="Photo">
+            <div>
+	            <video></video>
+	            <canvas id="shot"></canvas>
+	            <canvas id="ruler"></canvas>
+	            <img src="empty.png" alt="Photo">
+	        </div>
             
             <input type="file" id="take-picture" accept="image/*">
             
@@ -41,7 +44,7 @@
             <footer>
                 <menu role="toolbar">
                     <button role="menuitem" class="btn-cancel"><span>Cancel</span></button>
-                    <button role="menuitem" class="btn-ok"><span>Shoot</span></button>
+                    <button role="menuitem" class="btn-ok"><span>OK</span></button>
                 </menu>
             </footer>
         </section>

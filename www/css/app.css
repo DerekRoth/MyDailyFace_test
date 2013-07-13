@@ -157,3 +157,14 @@ menu[role=toolbar] > .btn-delete {
     max-height: 100%;
     max-width: 100%;
 }
+#view-take canvas#shot {
+	display: none;
+}
+#view-take > div {
+	position: relative;
+}
+#view-take canvas#ruler, #view-take video {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}

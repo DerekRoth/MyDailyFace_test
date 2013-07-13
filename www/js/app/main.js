@@ -13,7 +13,7 @@ define(function (require) {
 			.delete(faceKey);
         
         request.onsuccess = function(event) {
-        	var linkToDelete = document.querySelector('a[href="#face_' + faceKey + '"]');
+        	var linkToDelete = document.querySelector('a[href="#face_' + faceKey + '"]').parentNode;
         	linkToDelete.parentNode.removeChild(linkToDelete);
         	console.log(faceKey + " cleared.");
         };
@@ -121,11 +121,15 @@ define(function (require) {
     	// init picture shoot
     	var streaming = false;
     	var video = document.querySelector('#view-take video');
-    	var canvas = document.querySelector('#view-take canvas');
+    	var canvas = document.querySelector('#view-take canvas#shot');
+    	var canvasRuler = document.querySelector('#view-take canvas#ruler');
     	var imgPreview = document.querySelector('#view-take img');
     	var shootButton = document.querySelector('#view-take .btn-shoot');
     	var width = 320;
     	var height = 0;
+    	var eyesPosition = 50;
+    	var mouthPosition = 200;
+    	var middlePosition = 120;
     	
     	navigator.getMedia = (
 			navigator.getUserMedia ||
@@ -159,12 +163,41 @@ define(function (require) {
     				if (video.videoWidth > 0) {
     					clearInterval(interval);
     				}
+    				else {
+    					return false;
+    				}
     				console.log("video.videoWidth : " + video.videoWidth);
 	    			height = video.videoHeight / (video.videoWidth/width);
 	    			video.setAttribute('width', width);
 	    			video.setAttribute('height', height);
 	    			canvas.setAttribute('width', width);
 	    			canvas.setAttribute('height', height);
+	    			canvasRuler.setAttribute('width', width);
+	    			canvasRuler.setAttribute('height', height);
+	    			
+	    			video.parentElement.style.height = height + 'px';
+	    			
+	    			var context = canvasRuler.getContext('2d');
+	    			context.lineWidth = 6;
+	    			
+	    			// eyes ruler
+	    			context.beginPath();
+	    			context.moveTo(0, eyesPosition);
+	    			context.lineTo(width, eyesPosition);
+	    			context.stroke();
+	    			
+	    			// mouth ruler
+	    			context.beginPath();
+	    			context.moveTo(0, mouthPosition);
+	    			context.lineTo(width, mouthPosition);
+	    			context.stroke();
+	    			
+	    			// middle ruler
+	    			context.beginPath();
+	    			context.moveTo(middlePosition, 0);
+	    			context.lineTo(middlePosition, height);
+	    			context.stroke();
+	    			
 	    			streaming = true;
     			}, 100);
     		}
